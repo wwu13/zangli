@@ -36,7 +36,7 @@
 		.lunareclipse{background-color:#aaaaff}
 		.solareclipse{background-color:#ffaaaa}
 		</style>
-		<title>百年藏历 - 藏历在线查询</title>
+		<title>100 Years Tibetan Calendar</title>
 
 		<script src="zangli.js" async defer charset="UTF-8"></script>
 		<script>
@@ -149,7 +149,7 @@
 	<body onkeyup="changeDate(event.keyCode)">
 		<br>
 		<div class=day id="selectedDay"></div>
-		<div class=day> 选择要查看的公历日期 ： 
+		<div class=day> Please select the date 选择要查看的公历日期 ： 
 		<select id="year" onchange="changeDate('year')"></select>
 		&nbsp;
 		<select id="month" onchange="changeDate('month')"></select>
@@ -157,6 +157,7 @@
 		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
 			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
 				<tr bgcolor="darkred" style="color:white">
+					<!--
 					<th><span class="narrow">周</span><span class="wide">星期</span>日</th>
 					<th><span class="narrow">周</span><span class="wide">星期</span>一</th>
 					<th><span class="narrow">周</span><span class="wide">星期</span>二</th>
@@ -164,6 +165,14 @@
 					<th><span class="narrow">周</span><span class="wide">星期</span>四</th>
 					<th><span class="narrow">周</span><span class="wide">星期</span>五</th>
 					<th><span class="narrow">周</span><span class="wide">星期</span>六</th>
+					-->	
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
 				</tr>
 			</tbody>
 		</table>
@@ -178,3 +187,4 @@
 		</noscript>
 	</body>
 </html>
+
