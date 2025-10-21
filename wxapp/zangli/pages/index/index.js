@@ -99,11 +99,11 @@ function getZangliData(d) {
   d1 = new Date(d.getFullYear(), d.getMonth() + 1, 0)//月末
   if (d0 < new Date("1951/2/7")) d0 = new Date("1951/2/7");
   if (d1 > new Date("2051/1/12")) d1 = new Date("2051/1/12");
-  result.currentMonth = d0.getFullYear() + "年" + (d0.getMonth() + 1) + "月";
+  result.currentMonth = d0.getFullYear() + "YY" + (d0.getMonth() + 1) + "MM";
   var td0=getZangli(d0),td1=getZangli(d1);
   result.currentDate = d0;
 
-  result.tibetenMonth = td0.year+"年"+td0.month +"月 到 "+(td0.year==td1.year?"":td1.year+"年")+td1.month+"月";
+  result.tibetenMonth = "YY "+td0.year+ +"MM " +td0.month +" To "+(td0.year==td1.year?"":"YY "+td1.year)+"MM "+td1.month;
   result.zangliData=[[]];
   for (var i = 0; i < d0.getDay(); i++) {
     result.zangliData[0].push({ year: "　", month: "", date: "　",class:"td"},);
@@ -117,11 +117,11 @@ function getZangliData(d) {
     var z = getZangli(d3);
     var ecl = getEclipse(d3);
     var t = { year: "　", month: "", date: z.day,day:i};
-    if (i == d0.getDate() || z.day == "初一" || (z.day == "初二" && z.dayMiss)) {
-      t.month= z.month+"月";
+    if (i == d0.getDate() || z.day == "t01" || (z.day == "t02" && z.dayMiss)) {
+      t.month= "MM "+ z.month;
     }
-    if (z.month == '正' && !z.monthLeap && z.day == "初一" || (z.day == "初二" && z.dayMiss)){
-      t.year=z.year+"年";
+    if (z.month == 'T01' && !z.monthLeap && z.day == "t01" || (z.day == "t02" && z.dayMiss)){
+      t.year= "YY " + z.year;
     }else if(z.value!="error"){
       t.year=i;
     }
@@ -129,7 +129,7 @@ function getZangliData(d) {
     if (ecl.value != "") {
       t.month=ecl.value;
       result.extraInfo.push(
-        d3.getFullYear() + "年" + (d3.getMonth() + 1) + "月" + d3.getDate() + "日 "+ecl.value+"，"+
+        "YY" + d3.getFullYear() + " MM " + (d3.getMonth() + 1) + " DD " + d3.getDate() + ecl.value+"，"+
         ecl.extraInfo
         );
       t.class=/日/.test(ecl.value)?"td solar-eclipse":"td lunar-eclipse";
