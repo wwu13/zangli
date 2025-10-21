@@ -205,23 +205,19 @@ function getZangli(p){
 				}
 				var result={};
 				result.year="铁水木火土".substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
-				
-				// result.month= (monthLeap?"闰":"")+["正","二","三","四","五","六","七","八","九","十","十一","十二"][months-leapMonths];
-				// result.tMonth=(monthLeap?"闰":"")+["神变","苦行","具香","萨嘎","作净","明净","具醉","具贤","天降","持众","庄严","满意"][months-leapMonths]
-				// result.day= (dayLeap?"闰":"")+["初一","初二","初三","初四","初五","初六","初七","初八","初九","初十","十一","十二","十三","十四","十五","十六","十七","十八","十九","二十","廿一","廿二","廿三","廿四","廿五","廿六","廿七","廿八","廿九","三十"][tDays];
-				
-				result.month= (monthLeap?"闰":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","十二"][months-leapMonths];
+					
+				result.month= (monthLeap?"闰":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"][months-leapMonths];
 				result.tMonth=(monthLeap?"闰":"")+["神变","苦行","具香","萨嘎","作净","明净","具醉","具贤","天降","持众","庄严","满意"][months-leapMonths]
 				result.day= (dayLeap?"闰":"")+["t01","t02","t03","t04","t05","t06","t07","t08","t09","t10","t11","t12","t13","t14","t15","t16","t17","t18","t19","t20","t21","t22","t23","t24","t25","t26","t27","t28","t29","t30"][tDays];
 								result.dayLeap=dayLeap;
 				result.monthLeap=monthLeap;
 				result.dayMiss=dayMiss;
-				result.value=result.year+""+result.month+"月("+result.tMonth+"月)"+result.day;
+				result.value=result.year+""+result.month+"M("+result.tMonth+"M) "+result.day;
 				extraInfo="";
 				extraInfo2=""
 				if(!dayLeap)switch (tDays){
 					case 0:
-						if(months==0) extraInfo="神变节";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
+						if(months==0) extraInfo="Festival of Miracles";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
 						break;
 					case 3:if(months==5) extraInfo="Buddha Shakyamuni<br>Turning the Wheel of Dharma";break;  //"释迦牟尼佛<br>初转法轮日"
 					case 6:if(months==3) extraInfo="Birthday of Buddha Shakyamuni";break;
