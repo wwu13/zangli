@@ -50,7 +50,7 @@
 			var d=h?new Date(h.substr(1)):new Date();
 			if(d<startDate)d=startDate;
 			if(d>endDate)d=endDate;
-			$("selectedDay").innerHTML="公历"+d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日，藏历"+getZangli(d).value;
+			$("selectedDay").innerHTML="Year"+d.getFullYear()+" Month "+(d.getMonth()+1)+" Day "+d.getDate()+"，Tibetan Calendar"+getZangli(d).value;
 			$y.options.length=0;
 			for(var i=1951;i<2052;i++){
 				$y.appendChild(new Option(i));
@@ -84,7 +84,7 @@
 				var ecl = getEclipse(d3);
 				var t=[];
 				if(i==d0.getDate()){
-					t.push("<div class='center day0'><span class=wide>"+d.getFullYear()+"年"+(d.getMonth()+1)+"月1日</span><span class=narrow>"+i+"</span>");
+					t.push("<div class='center day0'><span class=wide>"+"Year "+d.getFullYear()+" Month "+(d.getMonth()+1)+" Day 1</span><span class=narrow>"+i+"</span>");
 				}else{
 					t.push("<div class='right day0'>"+i)
 				}
@@ -178,5 +178,6 @@
 		</noscript>
 	</body>
 </html>
+
 
 
