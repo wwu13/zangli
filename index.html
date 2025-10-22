@@ -52,7 +52,7 @@
 			if(d>endDate)		d=endDate;
 
 			// --- print date on 1st line of screen 
-			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()+"，Tibetan Calendar"+getZangli(d).value;
+			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+(d.getDate()+1) + "，Tibetan Calendar:"+getZangli(d).value;
 
 			// --- drop down list
 			$y.options.length=0;
@@ -184,6 +184,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
