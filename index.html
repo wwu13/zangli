@@ -50,7 +50,7 @@
 			var d=h?new Date(h.substr(1)):new Date();
 			if(d<startDate)d=startDate;
 			if(d>endDate)d=endDate;
-			$("selectedDay").innerHTML="YEAR "+d.getFullYear()+" MONTH "+(d.getMonth()+1)+" DAY "+d.getDate()+"，Tibetan Calendar"+getZangli(d).value;
+			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()+"，Tibetan Calendar"+getZangli(d).value;
 			$y.options.length=0;
 			for(var i=1951;i<2052;i++){
 				$y.appendChild(new Option(i));
@@ -179,6 +179,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
