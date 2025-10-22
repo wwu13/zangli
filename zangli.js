@@ -204,7 +204,8 @@ function getZangli(p){
 					months=12-specialDays[0].length;
 				}
 				var result={};
-				result.year=["Iron", "Water", "Wood", "Fire", "Earth"].substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
+				result.year=["Iron", "Water", "Wood", "Fire", "Earth"][Math.floor((years)/2) % 5]+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
+				//result.year=["Iron", "Water", "Wood", "Fire", "Earth"].substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
 					//"铁水木火土"
 				result.month= (monthLeap?"闰":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"][months-leapMonths];
 				result.tMonth=(monthLeap?"闰":"")+["神变","苦行","具香","萨嘎","作净","明净","具醉","具贤","天降","持众","庄严","满意"][months-leapMonths]
