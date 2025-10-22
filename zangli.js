@@ -204,7 +204,7 @@ function getZangli(p){
 					months=12-specialDays[0].length;
 				}
 				var result={};
-				result.year=["Iron","Water","Wood","Fire","Earth"][Math.floor((years)/2) % 5]+["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Sheep","Monkey","Bird","Dog","Pig"][years%12];
+				result.year=" " + ["Iron ","Water ","Wood ","Fire ","Earth "][Math.floor((years)/2) % 5]+["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Sheep","Monkey","Bird","Dog","Pig"][years%12]+" Year ";
 				//result.year="铁水木火土".substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
 						 
 				result.month= (monthLeap?"Leap ":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"][months-leapMonths];
@@ -213,7 +213,7 @@ function getZangli(p){
 								result.dayLeap=dayLeap;
 				result.monthLeap=monthLeap;
 				result.dayMiss=dayMiss;
-				result.value=result.year+""+result.month+"M("+result.tMonth+"M) "+result.day;
+				result.value=result.year+"MM "+result.month+" ("+result.tMonth+"月) DD "+result.day;
 				extraInfo="";
 				extraInfo2=""
 				if(!dayLeap)switch (tDays){
