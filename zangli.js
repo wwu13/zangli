@@ -204,9 +204,9 @@ function getZangli(p){
 					months=12-specialDays[0].length;
 				}
 				var result={};
-				result.year=["Iron", "Water", "Wood", "Fire", "Earth"][Math.floor((years)/2) % 5]+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
-				//result.year=["Iron", "Water", "Wood", "Fire", "Earth"].substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
-					//"铁水木火土"
+				result.year=["Iron","Water","Wood","Fire","Earth"][Math.floor((years)/2) % 5]+["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Sheep","Monkey","Bird","Dog","Pig"][years%12];
+				//result.year="铁水木火土".substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
+						 
 				result.month= (monthLeap?"Leap ":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"][months-leapMonths];
 				result.tMonth=(monthLeap?"Leap ":"")+["神变","苦行","具香","萨嘎","作净","明净","具醉","具贤","天降","持众","庄严","满意"][months-leapMonths]
 				result.day= (dayLeap?"Leap ":"")+["t01","t02","t03","t04","t05","t06","t07","t08","t09","t10","t11","t12","t13","t14","t15","t16","t17","t18","t19","t20","t21","t22","t23","t24","t25","t26","t27","t28","t29","t30"][tDays];
