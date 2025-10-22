@@ -37,7 +37,7 @@
 		.solareclipse{background-color:#ffaaaa}
 		</style>
 		<title>1951 - 2051 Tibetan Calendar</title>
-
+//--------------------------------------------------------------------------------
 		<script src="zangli.js" async defer charset="UTF-8"></script>
 		<script>
 		function $(id){return document.getElementById(id)}
@@ -48,9 +48,13 @@
 			$m=$("month");
 			$y=$("year");
 			var d=h?new Date(h.substr(1)):new Date();
-			if(d<startDate)d=startDate;
-			if(d>endDate)d=endDate;
+			if(d<startDate) 	d=startDate;
+			if(d>endDate)		d=endDate;
+
+			// --- print date on 1st line of screen 
 			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()+"，Tibetan Calendar"+getZangli(d).value;
+
+			// --- drop down list
 			$y.options.length=0;
 			for(var i=1951;i<2052;i++){
 				$y.appendChild(new Option(i));
@@ -68,6 +72,8 @@
 			while(tbody.rows.length>1){
 				tbody.deleteRow(tbody.rows.length-1)
 			}
+
+			
 			var tr,td;
 			var d0=new Date(d.getFullYear(),d.getMonth()	,1);		//月初
 			var d1=new Date(d.getFullYear()+1,d.getMonth()+1	,0);		//月末
@@ -104,14 +110,10 @@
 				td.title="Year "+d3.getFullYear()+" Month "+(d3.getMonth()+1)+" Day "+d3.getDate()+"，Tibetan Calendar"+z.value;
 				if(ecl.value!=""){
 					td.title=td.title+","+ecl.value;
-					if(/日/.test(ecl.value))
-					td.className = "solareclipse"
-					else
-					td.className = "lunareclipse"
+					if(/日/.test(ecl.value)) 		td.className = "solareclipse"
+					else							td.className = "lunareclipse"
 				}
-				if(ecl.extraInfo!=""){
-					td.title=td.title+","+ecl.extraInfo;
-				}
+				if(ecl.extraInfo!=""){				td.title=td.title+","+ecl.extraInfo;	}
 			}
 			for(var i=d3.getDay();i<6;i++){
 				tr.insertCell();
@@ -125,6 +127,8 @@
 				$("selectedDay").innerHTML=e.title;
 			}
 		}
+
+			
 		function changeDate(code){
 			var m=$m.value;
 			var y=$y.value;
@@ -146,13 +150,14 @@
 		}
 		</script>
 	</head>
+	
 	<body onkeyup="changeDate(event.keyCode)">
 		<br>
 		<div class=day id="selectedDay"></div>
 		<div class=day> Please select the date： 
-		<select id="YY" onchange="changeDate('year')"></select>
+		<select id="year" onchange="changeDate('year')"></select>
 		&nbsp;
-		<select id="MM" onchange="changeDate('month')"></select>
+		<select id="month" onchange="changeDate('month')"></select>
 		</div><br>
 		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
 			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
@@ -179,6 +184,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
