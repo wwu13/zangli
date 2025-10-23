@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="UTF-8">
+		<style>
+		@media only screen and (max-width:639px ) {
+			body{font-size:x-small}
+			.narrow{display:}
+			.wide{display:none}
+		}
+		@media only screen and (min-width:640px ){
+		.narrow{display:none}
+		.wide{display:}
+		}
+		@media only screen and (max-width:1023px ){
+		.day2{font-size:0.85em;}
+		.day3{font-size:0.8em}
+		}
+		@media only screen and (min-width:1024px ){
+		.day2{font-size:1em}
+		.day3{font-size:0.5em}
+		}
+		th{width:7em}
+		select{font-size:1.1em}
+		.right{text-align:right}
+		.center{text-align:center}
+		.day{font-size:1.2em}
+		.day0{font-size:1em}
+		.day1{font-size:1.3em}
+		.month{color:darkred;/*text-shadow: 0 0 2px orangered;*/ }
+		.month1{color:red}
+		.lunareclipse{background-color:#aaaaff}
+		.solareclipse{background-color:#ffaaaa}
+		</style>
+		<title>Tibetan Calendar of a Year</title>
+
+		<script src="zangli.js" async defer charset="UTF-8"></script>
+		<script>
+		function $(id){return document.getElementById(id)}
+		window.onhashchange=zangli_callback;
+		var $m,$y;
+		function zangli_callback(){
+			var h=location.hash;
+			$m=$("month");
+			$y=$("year");
+			var d=h?new Date(h.substr(1)):new Date();
+			if(d<startDate) 	d=startDate;
+			if(d>endDate)		d=endDate;
+
+			// --- print date on 1st line of screen 
+			// $("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+(d.getDate()+1) + "，Tibetan Calendar:"+getZangli(d).value;
+
+			// --- drop down list
+			$y.options.length=0;
+			for(var i=1951;i<2052;i++){
+				$y.appendChild(new Option(i));
+			}
+			$m.options.length=0;
+			
+			for(var i=1;i<13;i++){
+				if(!((d.getFullYear()==2051 && i>2)))
+					$m.appendChild(new Option(i));
+			}
+			$y.value=d.getFullYear();
+			$m.value=d.getMonth()+1;
+
+			var tbody=document.getElementsByTagName("tbody")[0];
+			while(tbody.rows.length>1){
+				tbody.deleteRow(tbody.rows.length-1)
+			}
+
+			
+			var tr,td;
+			var d0=new Date(d.getFullYear(),  d.getMonth()	,1);		//月初
+			var d1=new Date(d.getFullYear()+1,  d.getMonth()+1,0);		//月末
+			tr=tbody.insertRow();
+
+      
+			for(var i=0;i<d0.getDay();i++){								// get the day of week
+				td=tr.insertCell();										// insert empty cells before 1st day
+			}
+			for(var i=d0.getDate();i<=d1.getDate();i++){				// For every day of the month
+				var d3=new Date(d.getFullYear(),d.getMonth(),i);		// d3 is this specific day i
+				if(d3.getDay()==0 ){
+					tr=tbody.insertRow()								// Sunday from a new line
+				}
+				var z=getZangli(d3);
+				var ecl = getEclipse(d3);
+				var t=[];
+				if(i==d0.getDate()){									// The 1st day of month, print extra words
+					t.push("<div class='center day0'><span class=wide>"+"Year "+d.getFullYear()+" Month "+(d.getMonth()+1)+" Day 1</span><span class=narrow>"+i+"</span>");
+				}else{
+					t.push("<div class='right day0'>"+i)
+				}
+				
+				t.push("</div><div class='day1 center'>")				
+				if(z.day=="t01" || (z.day=="t02" && z.dayMiss))			// The 1st day of T-month
+					t.push("<b class=month1>"+(z.month=='T01'&&!z.monthLeap?z.year+"Year<wbr>":"")+z.month+"Month </b>"+z.day)
+				else
+					if(z.value!="error") t.push(z.day);
+				
+				t.push("</div><div class='center day2 wide'>");			// extra info
+				t.push(z.extraInfo?z.extraInfo:"&nbsp;")
+				
+				t.push("</div><div class='center day3 wide'>");			// eclipse info, extra info 2
+				t.push(ecl.value?(ecl.value+","+ecl.extraInfo.replace(/，/,", ")):(z.extraInfo2?z.extraInfo2:"&nbsp;"))
+				t.push("</div>");
+				
+				td=tr.insertCell()				// td:table day,  tr:table new row
+				td.innerHTML=t.join("");
+				
+				if(z.value!="error")
+				td.title="Year "+d3.getFullYear()+" Month "+(d3.getMonth()+1)+" Day "+d3.getDate()+"，Tibetan Calendar"+z.value;
+				if(ecl.value!=""){
+					td.title=td.title+","+ecl.value;
+					if(/日/.test(ecl.value)) 		td.className = "solareclipse"
+					else							td.className = "lunareclipse"
+				}
+				if(ecl.extraInfo!=""){				td.title=td.title+","+ecl.extraInfo;	}
+			}
+			for(var i=d3.getDay();i<6;i++){			// fill the rest of row if month ends
+				tr.insertCell();
+			}
+		}
+			
+		function showDay(e){
+			while(e.tagName!="TD" && e.tagName!="TABLE"){
+				e=e.parentNode;
+			}
+			if(e.title){
+				$("selectedDay").innerHTML=e.title;
+			}
+		}
+
+			
+		function changeDate(code){
+			var m=$m.value;
+			var y=$y.value;
+			if(code==37){
+				m--;
+			}else if(code==38){
+				y--;
+			}else if(code==39){
+				m++;
+			}else if(code==40){
+				y++;
+			}else if(code!="year" && code!="month"){
+				return;
+			}
+			if(m==0){y--;m=12}
+			if(m==13){y++;m=1}
+			location.replace(location.pathname+"#"+y+"/"+m+"/1");
+			window.scrollTo(0,0);
+		}
+		</script>
+	</head>
+	
+	<body onkeyup="changeDate(event.keyCode)">
+		<br>
+		<div class=day id="selectedDay"></div>
+		<div class=day> Please select the date： 
+		<select id="year" onchange="changeDate('year')"></select>
+		&nbsp;
+		<select id="month" onchange="changeDate('month')"></select>
+		</div><br>
+    /*
+		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
+			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
+				<tr bgcolor="darkred" style="color:white">
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+				</tr>
+			</tbody>
+		</table>		*/
+	</body>
+
+  
+</html>
+
+
+
+
+
+
+
+
+
+
+
