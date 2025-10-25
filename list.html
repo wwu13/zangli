@@ -48,10 +48,11 @@
 			if(d<startDate) 	d=startDate;
 			if(d>endDate)		d=endDate;
 
+<!---   ------------------------------ -->			
 			// --- print date on 1st line of screen 
 			// $("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+(d.getDate()+1) + "，Tibetan Calendar:"+getZangli(d).value;
 
-			// --- drop down list
+			<!-- drop down list -->
 			$y.options.length=0;
 			for(var i=1951;i<2052;i++){
 				$y.appendChild(new Option(i));
@@ -64,6 +65,7 @@
 			}
 			$y.value=d.getFullYear();
 			$m.value=d.getMonth()+1;
+<!---   ------------------------------ -->			
 
 			var tbody=document.getElementsByTagName("tbody")[0];
 			while(tbody.rows.length>1){
@@ -124,6 +126,7 @@
 			}
 		}
 			
+<!---   ------------------------------ -->			
 		function showDay(e){
 			while(e.tagName!="TD" && e.tagName!="TABLE"){
 				e=e.parentNode;
@@ -133,7 +136,7 @@
 			}
 		}
 
-			
+<!---   ------------------------------ -->					
 		function changeDate(code){
 			var m=$m.value;
 			var y=$y.value;
@@ -164,8 +167,8 @@
 		&nbsp;
 		<select id="month" onchange="changeDate('month')"></select>
 		</div><br>
-    /*
-		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
+		
+<!--		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
 			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
 				<tr bgcolor="darkred" style="color:white">
 					<th>Sun</th>
@@ -177,7 +180,8 @@
 					<th>Sat</th>
 				</tr>
 			</tbody>
-		</table>		*/
+		</table>		
+-->		
 	</body>
 
   
