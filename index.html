@@ -107,8 +107,8 @@
 				}else{	t.push("<div class='right day0'>"+i) 		}
 				
 				t.push("</div><div class='day1 center'>")				
-				if(z.day=="t01" || (z.day=="t02" && z.dayMiss))			// The 1st day of T-month
-					t.push("<b class=month1>"+(z.month=='T01'&&!z.monthLeap?z.year+"Year<wbr>":"")+z.month+"Month </b>"+z.day)
+				if(z.day=="d01" || (z.day=="d02" && z.dayMiss))			// The 1st day of T-month
+					t.push("<b class=month1>"+(z.month=='M1'&&!z.monthLeap?z.year+"Year<wbr>":"")+z.month+"Month </b>"+z.day)
 				else 	if(z.value!="error") t.push(z.day);
 				
 				t.push("</div><div class='center day2 wide'>");			// extra info
@@ -203,6 +203,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
