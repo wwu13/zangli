@@ -16,11 +16,11 @@ if(typeof getZangli == "undefined"){
   
 function zangli_callback(){
 	var ar=[]
-<!--	ar.push("1951/2/7:"+getZangli("1951/2/7").extraInfo); -->
+	ar.push("1981/4/6:"+getZangli("1981/4/6").extraInfo); -->
     var y = 2025
 	var s = y +"/1/1";
 	
-	for(var i=0;i<365;i++){
+	for(var i=0;i<35;i++){
 		var z=getZangli(s);
 		ar.push(s+":"+z.value+z.extraInfo);
 		s.setdate(s.getdata()+1);				  
