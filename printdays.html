@@ -19,13 +19,13 @@ function zangli_callback(){
 	ar.push("1981/4/6:"+getZangli("1981/4/6").extraInfo); 
     var d = newdate();
 	var s = newdate(d.getFullYear(),1,1);
-	
+<!--	
 	for(var i=0;i<35;i++){
 		var z=getZangli(s);
 		ar.push(s+":"+z.value+z.extraInfo);
 		s.setdate(s.getdate()+1);				  
 	}
-	
+	-->
 	document.body.innerHTML =ar.join("<br>")
 }
 </script>
