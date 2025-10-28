@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8">
 		<meta name="description" content="提供1951年1月8日到2051年1月12日之间到公历藏历对照查询">
 		<meta name="keywords" content="在线,藏历,百年,万年历，藏历月历">
-		<meta name="author"  content="Stone Huang">
 		<style>
 		@media only screen and (max-width:639px ) {
 			body{font-size:x-small}
@@ -54,7 +53,7 @@
 			if(d<startDate) 	d=startDate;
 			if(d>endDate)		d=endDate;
 
-			<!-- print date on 1st line of screen -->
+			// print date on 1st line of screen -->
 			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+(d.getDate()) + "，Tibetan Calendar:"+getZangli(d).value;
 
 			<!-- drop down list -->
@@ -204,6 +203,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
