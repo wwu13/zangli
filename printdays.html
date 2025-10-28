@@ -18,8 +18,8 @@ if(typeof getZangli == "undefined"){
 function zangli_callback(){
 	var ar=[]
 	ar.push("1951/2/7:"+getZangli("1951/2/7").extraInfo);
-	for(var i=1952;i<2052;i++){
-		var s=i+"/1/1";
+	for(var i=1;i<30;i++){
+		var s="2025/1/" + i;
 		var z=getZangli(s);
 		ar.push(s+":"+z.value+z.extraInfo);
 	}
