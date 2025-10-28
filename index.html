@@ -89,7 +89,9 @@
 				var d3 = new Date(d.getFullYear(), d.getMonth(), i);
 				$("printDays").insertRow();
 				var z = getZangli(d3);
-				$("printDays").innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
+				var t=[];
+                t.push(z.day +", " + z.extraInfo);
+				document.body.innerHTML =t.join("<br>")
 			}
 <!--		
 			-------------------------------- print table ----------------------------------------	
@@ -169,19 +171,17 @@
 	<body onkeyup="changeDate(event.keyCode)">
 		<br>
 		<div class=day id="selectedDay"></div>
-		<div class=day> Please select the date： 
-		<select id="year" onchange="changeDate('year')"></select>
-		&nbsp;
-		<select id="month" onchange="changeDate('month')"></select>
+		<div class=day> Please select the date： 	<select id="year" onchange="changeDate('year')"></select>
+		&nbsp;										<select id="month" onchange="changeDate('month')"></select>
 		</div><br>
 
-		<div class=day id="printDays"></div>
+		<div class=day id="printDays"></div><br>Test 1 ...<br>Test 2 ...<br>
 		
 		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
 			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
 				<tr bgcolor="darkred" style="color:white">
 					<th>Sun000</th>
-					<th>Mon</th>
+					<th>Mon111</th>
 					<th>Tue</th>
 					<th>Wed</th>
 					<th>Thu</th>
@@ -203,6 +203,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
