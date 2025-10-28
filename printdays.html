@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>藏历test 2 ...</title>
+		<title>藏历test 3 ...</title>
 		<script src="zangli.js" async defer charset="UTF-8"></script>
 	</head>
 	<body>
@@ -15,13 +15,13 @@ if(typeof getZangli == "undefined"){
 }
 function zangli_callback(){
 	var ar=[];
-	var s = "2025/1/1";
+	var s = "2025/1/51";
 	
 	ar.push("1951/2/7:"+getZangli("1951/2/7").extraInfo);
 	for(var i=1;i<5;i++){
 		var z=getZangli(s);
 		ar.push(s+", "+z.value + ", "+z.extraInfo);
-		s.setdate(s.getdate()+1);
+		
 	}
 	
 	document.body.innerHTML =ar.join("<br>")
