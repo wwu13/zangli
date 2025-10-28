@@ -23,7 +23,7 @@ function zangli_callback(){
 	for(var i=0;i<35;i++){
 		var z=getZangli(s);
 		ar.push(s+":"+z.value+z.extraInfo);
-		s.setdate(s.getdata()+1);				  
+		s.setdate(s.getdate()+1);				  
 	}
 	
 	document.body.innerHTML =ar.join("<br>")
