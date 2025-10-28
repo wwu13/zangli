@@ -86,11 +86,11 @@
 			-->
 				
 <!--    	Test --------      -->
-			for(var i=d0.getDate(); i<d0.getDate()+100; i++) {
+			for(var i=d0.getDate(); i<d0.getDate()+10; i++) {
 				var d3 = new Date(d.getFullYear(), d.getMonth(), i);
 				tbody.insertRow();
 				var z = getZangli(d3);
-				innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
+				tbody.innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
 			}
 <!--		-------------------------------- print table ----------------------------------------	
 			for(var i=d0.getDate();i<=d1.getDate();i++){				// For every day of the month
@@ -102,19 +102,15 @@
 				var t=[];
 				if(i==d0.getDate()){									// The 1st day of month, print extra words
 					t.push("<div class='center day0'><span class=wide>"+"Year "+d.getFullYear()+" Month "+(d.getMonth()+1)+" Day 1</span><span class=narrow>"+i+"</span>");
-				}else{
-					t.push("<div class='right day0'>"+i)
-				}
+				}else{	t.push("<div class='right day0'>"+i) 		}
 				
 				t.push("</div><div class='day1 center'>")				
 				if(z.day=="t01" || (z.day=="t02" && z.dayMiss))			// The 1st day of T-month
 					t.push("<b class=month1>"+(z.month=='T01'&&!z.monthLeap?z.year+"Year<wbr>":"")+z.month+"Month </b>"+z.day)
-				else
-					if(z.value!="error") t.push(z.day);
+				else 	if(z.value!="error") t.push(z.day);
 				
 				t.push("</div><div class='center day2 wide'>");			// extra info
 				t.push(z.extraInfo?z.extraInfo:"&nbsp;")
-				
 				t.push("</div><div class='center day3 wide'>");			// eclipse info, extra info 2
 				t.push(ecl.value?(ecl.value+","+ecl.extraInfo.replace(/，/,", ")):(z.extraInfo2?z.extraInfo2:"&nbsp;"))
 				t.push("</div>");
@@ -206,6 +202,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
