@@ -92,7 +92,8 @@
 				var z = getZangli(d3);
 				tbody.innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
 			}
-<!--		-------------------------------- print table ----------------------------------------	
+<!--		
+			-------------------------------- print table ----------------------------------------	
 			for(var i=d0.getDate();i<=d1.getDate();i++){				// For every day of the month
 				var d3=new Date(d.getFullYear(),d.getMonth(),i);		// d3 is this specific day i
 				if(d3.getDay()==0 ){ tr=tbody.insertRow(); }			// Sunday from a new line
@@ -202,6 +203,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
