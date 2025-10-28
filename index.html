@@ -78,15 +78,17 @@
 			var tr,td;
 			var d0=new Date(d.getFullYear(),  d.getMonth()	,1);		//月初
 			var d1=new Date(d.getFullYear()+1,  d.getMonth()+1,0);		//月末
-			tr=tbody.insertRow();
-
-			<!-- get the day of week, insert empty cells before 1st day -->
+			<!-- 
+				tr=tbody.insertRow();
+			-->
+			<!-- get the day of week, insert empty cells before 1st day 
 			for(var i=0;i<d0.getDay();i++){	td=tr.insertCell();	}
-
+			-->
+				
 <!--    	Test --------      -->
 			for(var i=1; i<100; i++) {
 				var d3 = new Date(d.getFullYear(), d.getMonth(), i);
-				tr = tbody.insertRow();
+				tbody.insertRow();
 				var z = getZangli(d3);
 				innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
 			}
@@ -204,6 +206,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
