@@ -39,10 +39,13 @@
 		<title>1951 - 2051 Tibetan Calendar</title>
 
 		<script src="zangli.js" async defer charset="UTF-8"></script>
+		
 		<script>
 		function $(id){return document.getElementById(id)}
+			
 		window.onhashchange=zangli_callback;
 		var $m,$y;
+			
 		function zangli_callback(){
 			var h=location.hash;
 			$m=$("month");
@@ -51,14 +54,12 @@
 			if(d<startDate) 	d=startDate;
 			if(d>endDate)		d=endDate;
 
-			// --- print date on 1st line of screen 
+			<!-- print date on 1st line of screen -->
 			$("selectedDay").innerHTML=""+d.getFullYear()+"/"+(d.getMonth()+1)+"/"+(d.getDate()+1) + "，Tibetan Calendar:"+getZangli(d).value;
 
-			// --- drop down list
+			<!-- drop down list -->
 			$y.options.length=0;
-			for(var i=1951;i<2052;i++){
-				$y.appendChild(new Option(i));
-			}
+			for(var i=1951;i<2052;i++){ 	$y.appendChild(new Option(i)); 	}
 			$m.options.length=0;
 			
 			for(var i=1;i<13;i++){
@@ -73,19 +74,23 @@
 				tbody.deleteRow(tbody.rows.length-1)
 			}
 
-			
+			<!-- ---------------------------------------------------------- -->
 			var tr,td;
 			var d0=new Date(d.getFullYear(),  d.getMonth()	,1);		//月初
 			var d1=new Date(d.getFullYear()+1,  d.getMonth()+1,0);		//月末
 			tr=tbody.insertRow();
-			for(var i=0;i<d0.getDay();i++){								// get the day of week
-				td=tr.insertCell();										// insert empty cells before 1st day
-			}
+
+			<!-- get the day of week, insert empty cells before 1st day -->
+			for(var i=0;i<d0.getDay();i++){	td=tr.insertCell();	}
+
+
+
+			
+<!--		-------------------------------- print table ----------------------------------------	
 			for(var i=d0.getDate();i<=d1.getDate();i++){				// For every day of the month
 				var d3=new Date(d.getFullYear(),d.getMonth(),i);		// d3 is this specific day i
-				if(d3.getDay()==0 ){
-					tr=tbody.insertRow()								// Sunday from a new line
-				}
+				if(d3.getDay()==0 ){ tr=tbody.insertRow(); }			// Sunday from a new line
+				
 				var z=getZangli(d3);
 				var ecl = getEclipse(d3);
 				var t=[];
@@ -120,9 +125,9 @@
 				}
 				if(ecl.extraInfo!=""){				td.title=td.title+","+ecl.extraInfo;	}
 			}
-			for(var i=d3.getDay();i<6;i++){			// fill the rest of row if month ends
-				tr.insertCell();
-			}
+	--> 
+		
+			for(var i=d3.getDay();i<6;i++){	tr.insertCell(); }		// fill the rest of row if month ends
 		}
 			
 		function showDay(e){
@@ -154,6 +159,8 @@
 			location.replace(location.pathname+"#"+y+"/"+m+"/1");
 			window.scrollTo(0,0);
 		}
+
+			
 		</script>
 	</head>
 	
@@ -190,6 +197,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
