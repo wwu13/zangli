@@ -212,7 +212,7 @@ function getZangli(p){
 								result.dayLeap=dayLeap;
 				result.monthLeap=monthLeap;
 				result.dayMiss=dayMiss;
-				result.value=", "+ result.year+", "+result.month+" ("+result.tMonth+"月), "+result.day;
+				result.value=result.year+", "+result.month+" ("+result.tMonth+"月), "+result.day;
 				extraInfo="";
 				extraInfo2=""
 				if(!dayLeap)switch (tDays){
