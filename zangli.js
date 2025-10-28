@@ -205,32 +205,31 @@ function getZangli(p){
 				}
 				var result={};
 				result.year=" " + ["Iron ","Water ","Wood ","Fire ","Earth "][Math.floor((years)/2) % 5]+["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Sheep","Monkey","Bird","Dog","Pig"][years%12]+" Year ";
-				//result.year="铁水木火土".substr(Math.floor((years)/2) % 5,1)+"虎兔龙蛇马羊猴鸡狗猪鼠牛".substr(years % 12,1);
 						 
-				result.month= (monthLeap?"Leap ":"")+["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"][months-leapMonths];
+				result.month= (monthLeap?"Leap ":"")+["M1","M2","M3","M4","M5","M6","M7","M8","M9","M10","M11","M12"][months-leapMonths];
 				result.tMonth=(monthLeap?"Leap ":"")+["神变","苦行","具香","萨嘎","作净","明净","具醉","具贤","天降","持众","庄严","满意"][months-leapMonths]
-				result.day= (dayLeap?"Leap ":"")+["t01","t02","t03","t04","t05","t06","t07","t08","t09","t10","t11","t12","t13","t14","t15","t16","t17","t18","t19","t20","t21","t22","t23","t24","t25","t26","t27","t28","t29","t30"][tDays];
+				result.day= (dayLeap?"Leap ":"")+["d01","d02","d03","d04","d05","d06","d07","d08","d09","d10","d11","d12","d13","d14","d15","d16","d17","d18","d19","d20","d21","d22","d23","d24","d25","d26","d27","d28","d29","d30"][tDays];
 								result.dayLeap=dayLeap;
 				result.monthLeap=monthLeap;
 				result.dayMiss=dayMiss;
-				result.value=result.year+"MM "+result.month+" ("+result.tMonth+"月) DD "+result.day;
+				result.value=", "+ result.year+", "+result.month+" ("+result.tMonth+"月), "+result.day;
 				extraInfo="";
 				extraInfo2=""
 				if(!dayLeap)switch (tDays){
 					case 0:
-						if(months==0) extraInfo="Festival of Miracles";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
+						if(months==0) extraInfo=", Festival of Miracles";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
 						break;
-					case 3:if(months==5) extraInfo="Buddha Shakyamuni<br>Turning the Wheel of Dharma";break;  //"释迦牟尼佛<br>初转法轮日"
-					case 6:if(months==3) extraInfo="Birthday of Buddha Shakyamuni";break;
-					case 9:extraInfo="Guru Rinpoche Day";break;
+					case 3:if(months==5) extraInfo=", Buddha Shakyamuni<br>Turning the Wheel of Dharma";break;  //"释迦牟尼佛<br>初转法轮日"
+					case 6:if(months==3) extraInfo=", Birthday of Buddha Shakyamuni";break;
+					case 9:extraInfo=", Guru Rinpoche Day";break;
 					case 14:
-						if(months==3) extraInfo="Buddha Shakyamuni<br>Saga Dawa Duchen";
-						else if(months==5) extraInfo="Buddha Shakyamuni入胎日";
-						else extraInfo="Amitabha Day";
+						if(months==3) extraInfo=", Buddha Shakyamuni<br>Saga Dawa Duchen";
+						else if(months==5) extraInfo=", Buddha Shakyamuni入胎日";
+						else extraInfo=", Amitabha Day";
 						break;
-					case 19:if(months==8) extraInfo="Lhabab Duchen";break; // 天降日
-					case 24:extraInfo="Dakini Day";break;
-					case 29:extraInfo="Buddha Shakyamuni Day";break;
+					case 19:if(months==8) extraInfo=", Lhabab Duchen";break; // 天降日
+					case 24:extraInfo=", Dakini Day";break;
+					case 29:extraInfo=", Buddha Shakyamuni Day";break;
 				}
 				result.extraInfo=extraInfo;
 				result.extraInfo2=extraInfo2;
