@@ -88,10 +88,7 @@
 				var d3 = new Date(d.getFullYear(), d.getMonth(), i);
 				tr = tbody.insertRow();
 				var z = getZangli(d3);
-
-				var t=[];
-				t.push(i + z.day + (z.extraInfo?z.extraInfo:""));
-				td.innerHTML=t.join("");
+				innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
 			}
 <!--		-------------------------------- print table ----------------------------------------	
 			for(var i=d0.getDate();i<=d1.getDate();i++){				// For every day of the month
@@ -207,6 +204,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
