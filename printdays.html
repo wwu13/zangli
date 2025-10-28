@@ -21,7 +21,7 @@ function zangli_callback(){
 	ar.push("1951/2/7:"+getZangli("1951/2/7").extraInfo);
 	for(var i=1;i<366;i++){
 		var z=getZangli(s);
-		ar.push(s.getFullYear()+s.getMonth()+s.getDate()+z.value + ", "+z.extraInfo);
+		ar.push(s.getFullYear()+"/"+s.getMonth()+"/"+s.getDate()+", "+z.value + ", "+z.extraInfo);
 		s.setDate(s.getDate()+1);
 	}
 	

@@ -217,19 +217,19 @@ function getZangli(p){
 				extraInfo2=""
 				if(!dayLeap)switch (tDays){
 					case 0:
-						if(months==0) extraInfo=", Festival of Miracles";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
+						if(months==0) extraInfo="Festival of Miracles";   // else{extraInfo="禅定胜王佛节日";extraInfo2="作何善恶成百倍";}
 						break;
-					case 3:if(months==5) extraInfo=", Buddha Shakyamuni Turning the Wheel of Dharma";break;  //"释迦牟尼佛<br>初转法轮日"
-					case 6:if(months==3) extraInfo=", Birthday of Buddha Shakyamuni";break;
-					case 9:extraInfo=", Guru Rinpoche Day";break;
+					case 3:if(months==5) extraInfo="Buddha Shakyamuni Turning the Wheel of Dharma";break;  //"释迦牟尼佛<br>初转法轮日"
+					case 6:if(months==3) extraInfo="Birthday of Buddha Shakyamuni";break;
+					case 9:extraInfo="Guru Rinpoche Day";break;
 					case 14:
-						if(months==3) extraInfo=", Buddha Shakyamuni<br>Saga Dawa Duchen";
-						else if(months==5) extraInfo=", Buddha Shakyamuni入胎日";
-						else extraInfo=", Amitabha Day";
+						if(months==3) extraInfo="Buddha Shakyamuni Saga Dawa Duchen";
+						else if(months==5) extraInfo="Buddha Shakyamuni入胎日";
+						else extraInfo="Amitabha Day";
 						break;
-					case 19:if(months==8) extraInfo=", Lhabab Duchen";break; // 天降日
-					case 24:extraInfo=", Dakini Day";break;
-					case 29:extraInfo=", Buddha Shakyamuni Day";break;
+					case 19:if(months==8) extraInfo="Lhabab Duchen";break; // 天降日
+					case 24:extraInfo="Dakini Day";break;
+					case 29:extraInfo="Buddha Shakyamuni Day";break;
 				}
 				result.extraInfo=extraInfo;
 				result.extraInfo2=extraInfo2;
