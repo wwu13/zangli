@@ -88,9 +88,9 @@
 <!--    	Test --------      -->
 			for(var i=d0.getDate(); i<d0.getDate()+10; i++) {
 				var d3 = new Date(d.getFullYear(), d.getMonth(), i);
-				tbody.insertRow();
+				$("printDays").insertRow();
 				var z = getZangli(d3);
-				tbody.innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
+				$("printDays").innerHTML=i + z.day + (z.extraInfo?z.extraInfo:"");
 			}
 <!--		
 			-------------------------------- print table ----------------------------------------	
@@ -175,8 +175,9 @@
 		&nbsp;
 		<select id="month" onchange="changeDate('month')"></select>
 		</div><br>
-		
 
+		<div class=day id="printDays"></div>
+		
 		<table cellspacing=1 bgcolor="brown" cellpadding="2em">
 			<tbody bgcolor="white" onclick="showDay(event.srcElement)">
 				<tr bgcolor="darkred" style="color:white">
@@ -203,6 +204,7 @@
 		</noscript>
 	</body>
 </html>
+
 
 
 
