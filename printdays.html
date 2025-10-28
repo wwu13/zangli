@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Print a year</title>
+		<title>Print two year</title>
 		<script src="zangli.js" async defer charset="UTF-8"></script>
 	</head>
 	
@@ -19,9 +19,9 @@ function zangli_callback(){
 	var ar=[]
 	ar.push("1951/2/7:"+getZangli("1951/2/7").extraInfo); 
     var d = newdate();
-	var s = newdate(d.getFullYear(),1,1);
+	var s = "2025/1/1";
 	
-	for(var i=0;i<35;i++){
+	for(var i=0;i<3;i++){
 		var z=getZangli(s);
 		ar.push(s+":"+z.value+z.extraInfo);
 		s.setdate(s.getdate()+1);				  
