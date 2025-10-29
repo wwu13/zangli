@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Calendar test 33 ...</title>
+		<title>Calendar test 34 ...</title>
 		<script src="zangli.js" async defer charset="UTF-8"></script>
 	</head>
 	<body>
@@ -24,7 +24,7 @@ function zangli_callback(){
 	for(var i=1;i<366*4;i++){
 		var z=getZangli(s);
 		if(z.extraInfo) {
-			ar.push(s.getFullYear()+"/"+(s.getMonth()+1) +"/"+s.getDate()+",\t\t"+z.value + ",\t\t"+z.extraInfo);
+			ar.push(s.getFullYear()+"/"+(s.getMonth()+1) +"/"+s.getDate()+",&#9;"+z.value + ",&#9;"+z.extraInfo);
 		}
 		oldmonth = s.getMonth();
 		s.setDate(s.getDate()+1);
