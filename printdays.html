@@ -21,7 +21,7 @@ function zangli_callback(){
 	var oldmonth;
 	var newmonth;
 			
-	for(var i=1;i<366*4;i++){
+	for(var i=1;i<366*25;i++){
 		var z=getZangli(s);
 		if(z.extraInfo) {
 			ar.push(s.getFullYear()+"/"+(s.getMonth()+1) +"/"+s.getDate()+",  "+z.value + ",  "+z.extraInfo);
